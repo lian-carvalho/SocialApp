@@ -126,3 +126,11 @@ h5 {
 h6 {
     font-size: var(--text-h6);
 }
+
+p {
+    font-size: var(--text-p);
+}
+
+small {
+    font-size: var(--text-small);
+}
