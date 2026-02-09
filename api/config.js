@@ -8,10 +8,9 @@ function Account(id, username, name, isFrom, description, profileImageUrl, follo
     this.followersQtd = followersQtd;
 }
 
-function Post(id, accountId, title, imageUrl, shortDescription, longDescription, postedAt, hasProduct = false, productId = undefined, saved = false) {
+function Post(id, accountId, imageUrl, shortDescription, longDescription, postedAt, hasProduct = false, productId = undefined, saved = false) {
     this.id = id;
     this.accountId = accountId;
-    this.title = title;
     this.imageUrl = `/db/posts/${imageUrl}`;
     this.shortDescription = shortDescription;
     this.longDescription = longDescription;
@@ -84,8 +83,8 @@ function DataBase() {
         this.accountsList.push(new Account(id, username, name, isFrom, description, profileImageUrl, followersQtd));
     };
 
-    this.createNewPost = (id, accountId, title, imageUrl, shortDescription, longDescription, postedAt, hasProduct, productId, saved) => {
-        this.postsList.push(new Post(id, accountId, title, imageUrl, shortDescription, longDescription, postedAt, hasProduct, productId, saved));
+    this.createNewPost = (id, accountId, imageUrl, shortDescription, longDescription, postedAt, hasProduct, productId, saved) => {
+        this.postsList.push(new Post(id, accountId, imageUrl, shortDescription, longDescription, postedAt, hasProduct, productId, saved));
     };
 
     this.createNewNotification = (id, accountId, title) => {
@@ -119,7 +118,7 @@ function DataBase() {
 
     this.showPostsByAccountId = (accountId) => {
         for (let p of this.getPostsByAccountId(accountId)) {
-            console.log(`|     ${p.id} - ${p.title} - ${p.postedAt}${p.saved ? ` - Saved` : ''} - ${p.shortDescription}`);
+            console.log(`|     ${p.id} - ${p.shortDescription} - ${p.postedAt}${p.saved ? ` - Saved` : ''} - ${p.longDescription}`);
         }
     };
 
