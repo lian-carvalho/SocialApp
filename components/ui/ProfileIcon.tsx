@@ -30,6 +30,8 @@ export default function ProfileIcon(
     { imageUrl = '', imageAlt = '', imageSize = 20, style = 'default', borderWidth = 2 }
         : ProfileIconProps) {
 
+    borderWidth = style === 'default' ? 0 : borderWidth;
+
     const boxSize = imageSize + borderWidth * 2;
 
     return (
@@ -45,7 +47,7 @@ export default function ProfileIcon(
                 width={imageSize}
                 height={imageSize}
                 alt={imageAlt}
-                className="rounded-full object-cover"
+                className="rounded-full object-cover w-auto"
             />
 
         </div>
