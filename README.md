@@ -9,6 +9,7 @@ Projeto desenvolvido por mim para demonstrar minhas habilidades
 
 ## Bibliotecas
 - [Lucide](https://lucide.dev/) -> Icones
+- [Tailwind Merge](https://www.npmjs.com/package/tailwind-merge) -> Junção de Tailwind
 
 ## Rodando o projeto
 ```bash
