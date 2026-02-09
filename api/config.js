@@ -4,7 +4,7 @@ function Account(id, username, name, isFrom, description, profileImageUrl, follo
     this.name = name;
     this.isFrom = isFrom;
     this.description = description;
-    this.profileImageUrl = profileImageUrl;
+    this.profileImageUrl = `/db/accounts/${profileImageUrl}`;
     this.followersQtd = followersQtd;
 }
 
@@ -12,7 +12,7 @@ function Post(id, accountId, title, imageUrl, shortDescription, longDescription,
     this.id = id;
     this.accountId = accountId;
     this.title = title;
-    this.imageUrl = imageUrl;
+    this.imageUrl = `/db/posts/${imageUrl}`;
     this.shortDescription = shortDescription;
     this.longDescription = longDescription;
     this.postedAt = postedAt;
@@ -32,9 +32,9 @@ function Product(id, name, description, imageUrl, price, inCart = false) {
     this.id = id;
     this.name = name;
     this.description = description;
-    this.imageUrl = imageUrl
-    this.price = price
-    this.inCart = inCart
+    this.imageUrl = `/db/products/${imageUrl}`;
+    this.price = price;
+    this.inCart = inCart;
 }
 
 function DataBase() {
@@ -42,7 +42,7 @@ function DataBase() {
     this.accountsList = [];
     this.postsList = [];
     this.notificationsList = [];
-    this.productList = [];
+    this.productsList = [];
 
     // Is
     this.isThisAccountLogged = (account) => this.getLoggedAccount() === account;
@@ -74,10 +74,10 @@ function DataBase() {
 
     this.getNotifications = () => this.notificationsList;
 
-    this.getProducts = () => this.productList;
+    this.getProducts = () => this.productsList;
     this.getProductById = (id) => this.productsList.find(product => product.id === id);
-    this.getInCartProducts = () => this.productList.filter(product => product.inCart);
-    this.getInCartProductsQtd = () => this.productList.filter(product => product.inCart).length;
+    this.getInCartProducts = () => this.productsList.filter(product => product.inCart);
+    this.getInCartProductsQtd = () => this.productsList.filter(product => product.inCart).length;
 
     // Create
     this.createNewAccount = (id, username, name, isFrom, description, profileImageUrl, followersQtd) => {
@@ -93,7 +93,7 @@ function DataBase() {
     };
 
     this.createNewProduct = (id, name, description, imageUrl, price, inCart) => {
-        this.productList.push(new Product(id, name, description, imageUrl, price, inCart));
+        this.productsList.push(new Product(id, name, description, imageUrl, price, inCart));
     };
 
     // Show/Display
@@ -124,14 +124,14 @@ function DataBase() {
     };
 
     this.showProducts = () => {
-        const qtd = this.productList.length;
+        const qtd = this.productsList.length;
         console.log(`Products(${qtd}):`)
         if (!qtd) {
             console.log('| No products...');
             return;
         }
 
-        for (let pd of this.productList) {
+        for (let pd of this.productsList) {
             console.log(`| ${pd.id} - ${pd.name} - ${pd.price}${pd.inCart ? ` - In Cart` : ''} - ${pd.description}`);
         }
     };
