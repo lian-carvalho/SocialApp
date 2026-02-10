@@ -17,11 +17,11 @@ export default function NavBar() {
 
     useEffect(() => {
 
-        if (pathname.startsWith('/post')) {
+        if (pathname.startsWith('/post/')) {
             setNavBarOpen(false);
             return;
         };
-        if (pathname.startsWith('/profile') && pathname !== `/profile/${loggedId}`) {
+        if (pathname.startsWith('/profile/') && pathname !== `/profile/${loggedId}`) {
             setNavBarOpen(false);
             return;
         }
