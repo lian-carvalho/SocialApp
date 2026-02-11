@@ -26,16 +26,22 @@ export default function TabBar() {
     const [newNotifications, setNewNotifications] = useState(true);
 
     const [tabBarOpen, setTabBarOpen] = useState(true);
-    const [username, setUsername] = useState('');
+    const username = (() => {
+        if (!pathname.startsWith('/profile/')) return '';
 
+        const idNum = Number(id);
+        const account = API.getAccountById(idNum);
+
+        if (account.username) return String(account.username);
+
+        return '';
+    })();
 
     // UseEffects
     useEffect((() => {
         tabBarOpenHandler();
-        usernameHandler();
         notificationsHandler();
     }), [pathname]);
-
 
     // Handlers
     const tabBarOpenHandler = () => {
@@ -44,23 +50,6 @@ export default function TabBar() {
             return;
         };
         if (tabBarOpen !== true) setTabBarOpen(true);
-    };
-
-    const usernameHandler = () => {
-        if (!pathname.startsWith('/profile/')) {
-            setUsername('');
-            return;
-        };
-
-        const idNum = Number(id);
-        const account = API.getAccountById(idNum);
-
-        if (account.username) {
-            setUsername(account.username);
-            return;
-        };
-
-        setUsername('');
     };
 
     const notificationsHandler = () => {
