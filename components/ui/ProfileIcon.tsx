@@ -18,7 +18,7 @@ const profileClasser = (styleType: ProfileIconProps['style']) => {
         case 'normal':
             return `${base} bg-dark`;
         case 'active':
-            return `${base} bg-purple`;
+            return `${base} bg-gradient-to-b from-purple to-orange`;
         case 'disabled':
             return `${base} bg-gray1`;
     };
