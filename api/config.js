@@ -51,7 +51,7 @@ function DataBase() {
     this.getLoggedAccount = () => this.accountsList.find(account => account.id === this.loggedUserId);
     this.getLoggedAccountId = () => this.loggedUserId;
 
-    this.getAccounts = () => this.accountsList;
+    this.getAccounts = () => this.accountsList.map((account) => ({ ...account, postsQtd: this.getPostsByAccountId(account.id).length }));
     this.getAccountById = (id) => {
         let account = this.accountsList.find(account => account.id === id);
         return { ...account, postsQtd: this.getPostsByAccountId(id).length };
