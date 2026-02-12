@@ -10,7 +10,7 @@ type ProfileIconProps = {
 }
 
 const profileClasser = (styleType: ProfileIconProps['style']) => {
-    const base = 'inline-flex rounded-full overflow-hidden';
+    const base = 'inline-flex shrink-0 rounded-full overflow-hidden';
 
     switch (styleType) {
         case 'default':
