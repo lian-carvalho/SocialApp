@@ -47,7 +47,7 @@ const buttonClasser = (
             case "primary":
                 return `text-white bg-purple hover:bg-purple1 disabled:hover:bg-purple`;
             case "secondary":
-                return `text-purple border border-purple hover:bg-purple/10 disabled:hover:bg-transparent`;
+                return `text-purple border border-purple hover:bg-purple/20 disabled:hover:bg-transparent`;
         }
     };
 
