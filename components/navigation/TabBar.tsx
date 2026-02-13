@@ -32,7 +32,7 @@ export default function TabBar() {
         const idNum = Number(id);
         const account = API.getAccountById(idNum);
 
-        if (account.username) return String(account.username);
+        if (account.name) return String(account.name);
 
         return '';
     })();
