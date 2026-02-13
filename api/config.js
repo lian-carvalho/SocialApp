@@ -1,9 +1,10 @@
-function Account(id, username, name, isFrom, description, profileImageUrl, followersQtd) {
+function Account(id, username, name, isFrom, description, link, profileImageUrl, followersQtd) {
     this.id = id;
     this.username = username;
     this.name = name;
     this.isFrom = isFrom;
     this.description = description;
+    this.link = link;
     this.profileImageUrl = `/db/accounts/${profileImageUrl}`;
     this.followersQtd = followersQtd;
 }
@@ -79,8 +80,8 @@ function DataBase() {
     this.getInCartProductsQtd = () => this.productsList.filter(product => product.inCart).length;
 
     // Create
-    this.createNewAccount = (id, username, name, isFrom, description, profileImageUrl, followersQtd) => {
-        this.accountsList.push(new Account(id, username, name, isFrom, description, profileImageUrl, followersQtd));
+    this.createNewAccount = (id, username, name, isFrom, description, link, profileImageUrl, followersQtd) => {
+        this.accountsList.push(new Account(id, username, name, isFrom, description, link, profileImageUrl, followersQtd));
     };
 
     this.createNewPost = (id, accountId, imageUrl, shortDescription, longDescription, postedAt, hasProduct, productId, saved) => {
