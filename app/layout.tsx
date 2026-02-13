@@ -26,7 +26,7 @@ export default function RootLayout({
     <html lang="en">
       <body
         className={`${inter.variable} antialiased flex justify-center overflow-hidden bg-gray1 min-h-screen h-screen`}>
-        <div className="flex flex-col bg-black grow max-w-sm h-full overflow-hidden">
+        <div className="flex flex-col bg-black grow max-w-md h-full overflow-hidden">
           <TabBar />
           {children}
           <NavBar />
