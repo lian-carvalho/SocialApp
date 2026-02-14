@@ -10,7 +10,7 @@ type NotFoundDisplayProps = {
 export default function NotFoundDisplay(
     {   title = 'Página não encontrada ou inexistente, por favor retorne a página inicial.',
         action = '/',
-        buttonPlaceholder = 'Retornar a página inicial'
+        buttonPlaceholder = 'Retornar'
     } : NotFoundDisplayProps) {
         
     return (
