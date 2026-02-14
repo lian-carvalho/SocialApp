@@ -1,5 +1,6 @@
 import API from "@/api/api";
 
+import type { Metadata } from "next";
 import ProfileIcon from "@/components/ui/ProfileIcon";
 import PostDisplay from "@/components/ui/PostDisplay";
 import { Button } from "@/components/ui/Button";
@@ -9,6 +10,25 @@ type PageProps = {
     params: {
         id: string
     }
+}
+
+export async function generateMetadata(
+  { params }: PageProps
+): Promise<Metadata> {
+
+  const { id } = await params; // ✅ AQUI
+  const idNum = Number(id);
+  const account = API.getAccountById(idNum);
+
+  if (!account?.name) {
+    return {
+      title: "Perfil não encontrado",
+    };
+  }
+
+  return {
+    title: `Perfil - ${account.name}`,
+  };
 }
 
 export default async function Profile({ params }: PageProps) {
@@ -58,20 +78,29 @@ export default async function Profile({ params }: PageProps) {
                                 )}
                             </div>
                         </div>
-                        <h6 className="text-gray">{account.description}</h6>
-                    </div>
-                    <div className="flex flex-col pt-xl px-l pb-l gap-l">
-                        {accountPosts.map((post, index) =>
-                            <PostDisplay
-                                key={index}
-                                id={post.id}
-                                accountId={post.accountId}
-                                imageUrl={post.imageUrl}
-                                description={post.shortDescription}
-                                saved={post.saved}
-                            />
+                        {account.description && (
+                            <h6 className="text-gray">{account.description}</h6>
                         )}
                     </div>
+                    {accountPosts.length && (
+                        <div className="flex flex-col pt-xl px-l pb-l gap-l">
+                            {accountPosts.map((post, index) =>
+                                <PostDisplay
+                                    key={index}
+                                    id={post.id}
+                                    accountId={post.accountId}
+                                    imageUrl={post.imageUrl}
+                                    description={post.shortDescription}
+                                    saved={post.saved}
+                                />
+                            )}
+                        </div>
+                    )}
+                    {!accountPosts.length && (
+                        <div className="flex-1 flex justify-center items-center p-xl">
+                            <h5 className="text-gray text-center">Não há posts.</h5>
+                        </div>
+                    )}
                 </>
             )}
 
