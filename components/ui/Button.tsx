@@ -38,7 +38,7 @@ const buttonClasser = (
     base?: string,
     otherClasses?: string) => {
 
-    base = base || "flex justify-center items-center py-xs px-xxl gap-xxs text-center font-bold rounded-full cursor-pointer duration-300 disabled:opacity-30 disabled:cursor-default";
+    base = base || "flex justify-center items-center py-s px-xl gap-xxs text-center font-bold rounded-full cursor-pointer duration-300 disabled:opacity-30 disabled:cursor-default";
 
     if (!otherClasses) otherClasses = '';
 
