@@ -15,6 +15,11 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "SocialApp",
   description: "A portfolio project developed by Lian Dev",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    viewportFit: "cover",
+  },
 };
 
 export default function RootLayout({
@@ -25,10 +30,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} antialiased flex justify-center overflow-hidden bg-gray1 min-h-screen h-screen`}>
+        className={`${inter.variable} antialiased flex justify-center overflow-hidden bg-gray1 h-[100dvh]`}>
         <div className="flex flex-col bg-black grow max-w-md h-full overflow-hidden">
           <TabBar />
-          {children}
+            {children}
           <NavBar />
         </div>
       </body>

@@ -59,7 +59,8 @@
     --text-*: initial;
     --text-h1: 30px;
     --text-h2: 25px;
-    --text-h3: 20px --text-h4: 18px;
+    --text-h3: 20px;
+    --text-h4: 18px;
     --text-h5: 16px;
     --text-p: 14px;
     --text-h6: 12px;
@@ -75,14 +76,14 @@
 /* CORPO */
 body {
     font-family: var(--font-inter), system-ui, sans-serif;
-
-    min-height: 100vh;
-
+    min-height: 100dvh;
+    padding-bottom: env(safe-area-inset-bottom);
 }
 
 /* Telas */
 .screen-container {
     flex: 1;
+    min-height: 0;
     display: flex;
     flex-direction: column;
     overflow-y: scroll;
