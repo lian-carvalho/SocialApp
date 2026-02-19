@@ -1,0 +1,39 @@
+:root {
+    --animation-duration: 1.2s;
+}
+
+.slideRight {
+    animation: animation-slide-right var(--animation-duration) ease-in-out 1;
+}
+
+.slideTop {
+    animation: animation-slide-top var(--animation-duration) ease-in-out 1;
+}
+
+@keyframes animation-slide-right {
+    0% {
+        transform: translateX(-100%);
+    }
+    
+    20% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes animation-slide-top {
+    0% {
+        transform: translateY(100%);
+    }
+    
+    20% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0%);
+    }
+}
