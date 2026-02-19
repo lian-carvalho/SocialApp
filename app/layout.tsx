@@ -20,6 +20,9 @@ export const metadata: Metadata = {
     initialScale: 1,
     viewportFit: "cover",
   },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({
@@ -33,7 +36,7 @@ export default function RootLayout({
         className={`${inter.variable} antialiased flex justify-center overflow-hidden bg-gray1 h-[100dvh]`}>
         <div className="flex flex-col bg-black grow max-w-md h-full overflow-hidden">
           <TabBar />
-            {children}
+          {children}
           <NavBar />
         </div>
       </body>
