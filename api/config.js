@@ -65,7 +65,7 @@ function DataBase() {
         if (account.description.toLowerCase().includes(clearSearch)) return true;
 
         return false;
-    });
+    }).map((account) => ({ ...account, postsQtd: this.getPostsByAccountId(account.id).length }));
 
     this.getPosts = () => this.postsList;
     this.getPostById = (id) => this.postsList.find(post => post.id === id);
