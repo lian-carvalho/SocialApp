@@ -45,7 +45,7 @@ export default function TabBar() {
 
     // Handlers
     const tabBarOpenHandler = () => {
-        if (pathname.startsWith('/post/')) {
+        if (pathname.startsWith('/post/') || pathname.startsWith('/search')) {
             setTabBarOpen(false);
             return;
         };
