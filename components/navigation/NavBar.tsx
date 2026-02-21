@@ -51,7 +51,7 @@ export default function NavBar() {
             </NavOption>
 
             {/* Salvos */}
-            <NavOption navPath="/save" actualPath={pathname} navTitle="Salvos">
+            <NavOption navPath="/saved" actualPath={pathname} navTitle="Salvos">
                 <Bookmark className="icon-l" />
             </NavOption>
 
