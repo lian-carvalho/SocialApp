@@ -28,12 +28,13 @@ function AppNotification(id, accountId, title) {
     this.title = title;
 }
 
-function Product(id, name, description, imageUrl, price, inCart = false) {
+function Product(id, name, description, imageUrl, price, link = undefined, inCart = false) {
     this.id = id;
     this.name = name;
     this.description = description;
     this.imageUrl = `/db/products/${imageUrl}`;
     this.price = price;
+    this.link = link;
     this.inCart = inCart;
 }
 
@@ -92,8 +93,8 @@ function DataBase() {
         this.notificationsList.push(new AppNotification(id, accountId, title));
     };
 
-    this.createNewProduct = (id, name, description, imageUrl, price, inCart) => {
-        this.productsList.push(new Product(id, name, description, imageUrl, price, inCart));
+    this.createNewProduct = (id, name, description, imageUrl, price, link, inCart) => {
+        this.productsList.push(new Product(id, name, description, imageUrl, price, link, inCart));
     };
 
     // Show/Display
