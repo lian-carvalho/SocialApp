@@ -14,8 +14,8 @@ export default function TabBar() {
     const { id } = useParams();
 
     const shop = {
-        cartWithItens: true,
-        quantity: 5,
+        cartWithItens: !!API.getInCartProducts().length,
+        quantity: API.getInCartProductsQtd(),
         quantityShow() {
             if (this.quantity < 10) return this.quantity.toString();
             return '9+';
@@ -132,12 +132,12 @@ export default function TabBar() {
                 {/* Carrinho de compras */}
                 {!username && (
                     <div className="relative cursor-pointer hover:opacity-60 duration-300"
-                        onClick={() => { backTo('/your_cart') }}
+                        onClick={() => { backTo('/cart') }}
                         title="Meu carrinho"
                     >
-                        <ShoppingCart className="icon-l" fill={fillByPath('/your_cart')} />
+                        <ShoppingCart className="icon-l" fill={fillByPath('/cart')} />
 
-                        {shop.cartWithItens && (
+                        {(shop.cartWithItens && !pathname.startsWith('/cart')) && (
                             <div className="h-s w-s flex justify-between items-center bg-purple-1 rounded-full absolute top-0 right-0">
                                 <small className="text-center grow">{shop.quantityShow()}</small>
                             </div>
