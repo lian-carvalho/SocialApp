@@ -13,7 +13,7 @@ API.createNewPost(2, 1, 'socialbanner.png', 'Bem vindo ao melhor app de todos', 
 API.createNewPost(3, 2, 'barberbanner.png', 'Melhor barbearia da região...', '', 'há 8 horas');
 API.createNewPost(4, 3, 'movebanner.png', 'Maior empresa de mudança do Brasil', '', 'há 1 dia');
 
-API.createNewProduct(0, 'Website completo', 'Seu site completamente personalizado', 'website-completo.jpeg', 'Há discutir', true);
+API.createNewProduct(0, 'Website completo', 'Seu site completamente personalizado', 'website-completo.jpeg', 'Há discutir', undefined, true);
 
 API.createNewNotification(0, 0, 'Já me seguiu nas redes?');
 
