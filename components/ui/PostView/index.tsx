@@ -51,11 +51,12 @@ export default function PostView({ postId }: PostViewProps) {
             </button>
 
             <div className="z-1 absolute top-0 left-0 h-full w-full">
-                {open && (
-                    <div className="z-2 absolute top-0 left-0 h-full w-full bg-black/70"
-                        onClick={() => openInfosHandler(false)}
-                    ></div>
-                )}
+                {/* Filter */}
+                <div className={`z-2 absolute top-0 left-0 h-full w-full bg-black/70 duration-500 ${open ? 'opacity-100' : 'opacity-0'}`}
+                    onClick={() => openInfosHandler(false)}
+                ></div>
+
+                {/* Image */}
                 <div className="z-1 relative h-full w-full">
                     <Image
                         fill
