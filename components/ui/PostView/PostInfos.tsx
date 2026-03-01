@@ -31,7 +31,7 @@ export default function PostInfos({ postId, open, openHandlerFunction }: PostInf
             <div className={`flex ${open ? 'flex-col' : ''} gap-s`}>
                 {/* Main Section */}
                 <div className="flex-1 min-w-0 flex flex-col gap-s">
-                    {/* Header */}
+                    {/* Header / Account Infos */}
                     <div className="flex items-center gap-xxs min-w-0">
                         <Link href={`/profile/${account.id}`} className="flex shrink-0">
                             <ProfileIcon imageUrl={account.profileImageUrl} imageSize={50} style="active" />
@@ -44,21 +44,27 @@ export default function PostInfos({ postId, open, openHandlerFunction }: PostInf
                             </div>
                         </div>
                     </div>
+                    {/* Short Description Container */}
                     <InfoShow condition={!!post.shortDescription}>
                         <h6 className="text-white">{post.shortDescription}</h6>
                     </InfoShow>
                 </div>
                 <div className={`flex flex-col gap-s ${(!post.longDescription && !product) || (!product && !open) ? 'hidden' : ''}`}>
+                    {/* Long Description Container */}
                     <InfoShow condition={!!post.longDescription} show={open}>
                         <h6 className="text-white">{post.longDescription}</h6>
                     </InfoShow>
+
+                    {/* Product Infos */}
                     <div className="flex flex-wrap gap-m items-stretch h-full">
                         <InfoShow condition={!!product} show={open}>
                             <p className="text-gray">Preço</p>
                             <h2 className="text-white font-bold truncate">{product.price}</h2>
                         </InfoShow>
+
+                        {/* Cart Button */}
                         {product && (
-                            <Button className="flex-1 self-stretch rounded-xxs">
+                            <Button linkType='internal' linkUrl='/cart' className="flex-1 self-stretch rounded-xxs">
                                 <ShoppingBag className="icon-l" />
                             </Button>
                         )}
