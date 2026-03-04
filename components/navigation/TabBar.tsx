@@ -125,6 +125,7 @@ export default function TabBar() {
                 {/* Botão de nova postagem */}
                 <div className=" cursor-pointer hover:opacity-60 duration-300"
                     title="Nova postagem"
+                    onClick={() => { backTo('/create_new_post') }}
                 >
                     <SquarePlus className="icon-l" />
                 </div>
