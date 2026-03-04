@@ -140,7 +140,7 @@ export default function TabBar() {
 
                         {(shop.cartWithItens && !pathname.startsWith('/cart')) && (
                             <div className="h-s w-s flex justify-between items-center bg-purple-1 rounded-full absolute top-0 right-0">
-                                <small className="text-center grow">{shop.quantityShow()}</small>
+                                <small className="text-center grow pointer-events-none">{shop.quantityShow()}</small>
                             </div>
                         )}
 
