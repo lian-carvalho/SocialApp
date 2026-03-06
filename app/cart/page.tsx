@@ -1,6 +1,13 @@
+import { Metadata } from "next";
+
 import API from "@/api/api";
 
 import ProductCard from "@/components/ui/ProductCard";
+
+export const metadata: Metadata = {
+    title: "Carrinho - SocialApp",
+    description: "Carrinho de compras | A portfolio project developed by Lian Dev"
+};
 
 export default function Cart() {
     const inCartProducts = API.getInCartProducts();

@@ -1,5 +1,13 @@
+import { Metadata } from "next";
+
 import API from "@/api/api"
+
 import PostDisplay from "@/components/ui/PostDisplay";
+
+export const metadata: Metadata = {
+    title: "Salvos - SocialApp",
+    description: "Posts salvos | A portfolio project developed by Lian Dev"
+};
 
 export default function Saved() {
     const savedPosts = API.getSavedPosts();

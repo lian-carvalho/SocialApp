@@ -1,7 +1,14 @@
+import { Metadata } from "next";
+
 import API from "@/api/api";
 
 import PostView from "@/components/ui/PostView";
 import NotFoundDisplay from "@/components/section/NotFoundDisplay";
+
+export const metadata: Metadata = {
+    title: "Post - SocialApp",
+    description: "Veja esse post! | A portfolio project developed by Lian Dev"
+};
 
 type PageProps = {
     params: {

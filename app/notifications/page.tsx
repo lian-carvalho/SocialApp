@@ -1,8 +1,15 @@
+import { Metadata } from "next";
+
 import API from "@/api/api";
 
 import Link from "next/link"
 import ProfileIcon from "@/components/ui/ProfileIcon"
 import { ChevronRight } from "lucide-react";
+
+export const metadata: Metadata = {
+    title: "Notificações - SocialApp",
+    description: "Suas notificações | A portfolio project developed by Lian Dev"
+};
 
 export default function Notifications() {
     const appNotifications = API.getNotifications();
